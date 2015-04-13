@@ -2,7 +2,7 @@
 Imports System.Data.DataTable
 
 Public Class frmType
-    Dim TB As New DataTable
+    Dim YO As New DataTable
     Dim ConnectionString As String = "workstation id=AwesomeDatabase.mssql.somee.com;packet size=4096;user id=theluanvuong1;pwd=Linkinpark123@;data source=AwesomeDatabase.mssql.somee.com;persist security info=False;initial catalog=AwesomeDatabase"
 
     Private Sub frmType_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -10,15 +10,15 @@ Public Class frmType
         Dim sqlAdapter As New SqlDataAdapter("SELECT * FROM Loai_SP", Connect)
         Try
             Connect.Open()
-            sqlAdapter.Fill(TB)
+            sqlAdapter.Fill(YO)
         Catch ex As Exception
         End Try
-        dgrView2.DataSource = TB
+        dgrView2.DataSource = YO
         Connect.Close()
 
-        Dim index As Integer = dgrView2.CurrentCell.RowIndex
-        txtTypecode.Text = dgrView2.Item(0, index).Value
-        txtTypeName.Text = dgrView2.Item(1, index).Value
+        Dim andex As Integer = dgrView2.CurrentCell.RowIndex
+        txtTypecode.Text = dgrView2.Item(0, andex).Value
+        txtTypeName.Text = dgrView2.Item(1, andex).Value
     End Sub
 
     Private Sub frmType_Load()
@@ -26,10 +26,10 @@ Public Class frmType
         Dim sqlAdapter As New SqlDataAdapter("SELECT * FROM Loai_SP", Connect)
         Try
             Connect.Open()
-            sqlAdapter.Fill(TB)
+            sqlAdapter.Fill(YO)
         Catch ex As Exception
         End Try
-        dgrView2.DataSource = TB
+        dgrView2.DataSource = YO
         Connect.Close()
     End Sub
 
